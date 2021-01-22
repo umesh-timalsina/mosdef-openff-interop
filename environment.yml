@@ -1,0 +1,23 @@
+# Environment file for Jupyter notebook examples
+name: interop-env
+channels:
+  - conda-forge
+  - omnia
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - pydantic
+  - pint
+  - sympy
+  - qcelemental
+  - jax
+  - sympy
+  - pint
+  - openmm
+  - mbuild
+  - foyer
+  - gmso
+  - openff-toolkit
+  - pip:
+      - "--editable=git+https://github.com/openforcefield/openff-system.git#egg=openff-system"
