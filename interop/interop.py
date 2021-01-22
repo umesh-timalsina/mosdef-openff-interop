@@ -2,7 +2,8 @@ from mbuild.lib.molecules import Ethane
 from gmso import Topology as GMSOTopology
 from gmso.external import from_mbuild
 from openff.toolkit.topology import Topology as OpenFFTopology
-from openff.toolkit.topology import Molecule, Atom
+from openff.toolkit.topology import Molecule
+import simtk.unit as simtk_unit
 
 
 class InterPackageConverter:
@@ -38,7 +39,7 @@ class InterPackageConverter:
         )
 
         if gmso_toplogy.box is not None:
-            openff_topology._box_vectors = gmso_toplogy.box.get_vectors()
+            openff_topology.box_vectors = gmso_toplogy.box.get_vectors().in_units('angstrom').value * simtk_unit.angstroms
 
         return openff_topology
 
